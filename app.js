@@ -3,6 +3,7 @@
 
 const express = require("express");
 const morgan = require("morgan");
+const projects = require("./data/projects.json")
 const articles = require("./data/articles.json")
 
 // CREATE EXPRESS APP
@@ -31,6 +32,10 @@ app.get("/", (req,res) => {
 app.get("/blog", (req,res) => {
     res.sendFile(__dirname + "/views/blog.html")
     console.log("Accediendo al blog")
+})
+
+app.get("/api/projects", (req,res) => {
+    res.json(projects);
 })
 
 app.get("/api/articles", (req,res) => {
